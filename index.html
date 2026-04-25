@@ -1,262 +1,512 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jordany Dimbiniaina - Développeur Backend</title>
-    <meta name="description" content="Portfolio de Jordany Dimbiniaina, développeur backend passionné par la performance et la qualité">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Jordany | Backend Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext x='50' y='72' font-size='65' text-anchor='middle' fill='%233b82f6' font-family='Arial, sans-serif' font-weight='bold'%3EJ%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext x='50' y='72' font-size='65' text-anchor='middle' fill='%233b82f6' font-family='Arial, sans-serif' font-weight='bold'%3EJ%3C/text%3E%3C/svg%3E">  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #0a0a0a;
+            --card-bg: #141414;
+            --text-main: #ededed;
+            --text-dim: #a1a1a1;
+            --accent: #3b82f6;
+            --fuschia: #ff00ff;
+            --border: #262626;
+            --go-color: #00ADD8;
+            --ts-color: #3178C6;
+            --rust-color: #CE412B;
         }
 
+        * { box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #ffffff;
-            background-color: #1b0642;
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            line-height: 1.7;
         }
 
         .container {
-            max-width: 704px;
-            margin: 0 auto;
-            padding: 23px 20px;
+            max-width: 850px;
+            padding: 2.5rem;
         }
 
-        /* Typography */
+        .hero {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            filter: grayscale(100%) contrast(1.1);
+            object-fit: cover;
+            border: 1px solid var(--border);
+        }
+
         h1 {
-            font-size: 2.25rem;
+            font-size: 3.5rem;
+            margin: 0;
             font-weight: 600;
-            margin-bottom: 21.44px;
-            margin-top: 0;
+            letter-spacing: -2px;
         }
 
-        h2 {
-            font-size: 1.75rem;
-            font-weight: 500;
-            margin-bottom: 0;
+        .tagline {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
         }
 
-        p {
-            font-size: 1.1875rem;
-            margin-bottom: 40px;
+        .bio {
+            color: var(--text-dim);
+            margin-top: 1.5rem;
         }
 
-        /* Links */
-        a {
-            color: #ff5dae;
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-
-        a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        /* Blinking Cursor */
-        .blinker {
-            display: inline-block;
-            animation: blink 1s infinite;
-            margin-left: 5px;
-            font-size: 1.75rem;
-            font-weight: normal;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            justify-content: flex-end;
-            gap: 20px;
-            width: 140px;
-        }
-
-        .social-link {
-            color: #6d6d9c;
-            transition: color 0.2s ease;
-        }
-
-        .social-link:hover {
-            color: #ff5dae;
-        }
-
-        .social-link svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-
-        /* Footer */
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 100px;
-            margin-bottom: 20px;
-        }
-
-        .copyright {
-            color: #6d6d9c;
-            font-size: 1.0625rem;
-        }
-
-        /* Tech Stack Icons */
-        .tech-icons {
-            margin: 20px 0;
+        .tech-stack {
             display: flex;
             flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 14px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .rust-icon {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            background-image: url('rust-logo.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: brightness(0) invert(1);
+            transition: all 0.2s;
+        }
+        .tech-item.rust:hover .rust-icon {
+            filter: brightness(1) invert(0);
+        }
+        .tech-item.go:hover {
+            background: var(--go-color);
+            border-color: var(--go-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tech-item.typescript:hover {
+            background: var(--ts-color);
+            border-color: var(--ts-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tech-item.rust:hover {
+            background: var(--rust-color);
+            border-color: var(--rust-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tech-item i {
+            font-size: 1.2rem;
+        }
+        .fuschia-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--fuschia);
+            text-decoration: underline;
+            text-decoration-color: var(--fuschia);
+            text-underline-offset: 4px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .fuschia-link i {
+            font-size: 0.9rem;
+        }
+
+        .fuschia-link:hover {
+            color: #ff66ff;
+            text-decoration-color: #ff66ff;
+            transform: translateY(-1px);
+        }
+
+        .text-link {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-decoration-color: var(--border);
+            text-underline-offset: 4px;
+            transition: all 0.2s;
+        }
+
+        .text-link:hover {
+            text-decoration-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .cta-box {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--card-bg);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--text-main);
+            color: var(--bg);
+            padding: 0.7rem 1.4rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 0.8rem;
+            transition: transform 0.1s;
+        }
+
+        .btn:active { transform: scale(0.98); }
+
+        .socials {
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        .socials p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .icon-group {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .icon-group a {
+            display: inline-flex;
+            align-items: center;
             gap: 10px;
+            text-decoration: none;
+            color: var(--text-dim);
+            transition: all 0.2s;
+            font-size: 0.95rem;
         }
 
-        .tech-icon {
-            font-size: 1.5rem;
-            opacity: 0.9;
+        .icon-group a i,
+        .icon-group .bluesky-icon {
+            font-size: 1.3rem;
+            width: 24px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
-            }
-            
-            h1 {
-                font-size: 1.875rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            p {
-                font-size: 1.0625rem;
-            }
-            
-            .footer {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .social-links {
-                width: 100%;
-                justify-content: center;
-            }
+        .icon-group a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .bluesky-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23a1a1a1' d='M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.6-8.9 130.5-14.1 149.2c-18.2 64.6-84.5 81.2-143.5 71.3c103 17.5 129.3 75.5 72.6 133.5c-107.4 110.2-154.4-27.6-166.4-62.9c-1.4-4.1-2.1-6-2.1-6s-.7 1.9-2.1 6c-12 35.3-59 173.1-166.4 62.9c-56.7-58-30.4-116 72.6-133.5C100.9 308.6 34.6 292 16.4 227.4C11.2 208.7 2.3 93.8 2.3 78.2c0-77.8 68.2-53.4 109.5-16z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all 0.2s;
+        }
+
+        .icon-group a:hover .bluesky-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%233b82f6' d='M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.6-8.9 130.5-14.1 149.2c-18.2 64.6-84.5 81.2-143.5 71.3c103 17.5 129.3 75.5 72.6 133.5c-107.4 110.2-154.4-27.6-166.4-62.9c-1.4-4.1-2.1-6-2.1-6s-.7 1.9-2.1 6c-12 35.3-59 173.1-166.4 62.9c-56.7-58-30.4-116 72.6-133.5C100.9 308.6 34.6 292 16.4 227.4C11.2 208.7 2.3 93.8 2.3 78.2c0-77.8 68.2-53.4 109.5-16z'/%3E%3C/svg%3E");
+        }
+
+        @media (max-width: 700px) {
+            .hero { grid-template-columns: 1fr; text-align: left; gap: 2rem; }
+            .profile-pic { width: 120px; height: 120px; }
+            h1 { font-size: 2.5rem; }
+            .icon-group { gap: 1rem; }
+            .tech-stack { gap: 1rem; }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            
-            h2 {
-                font-size: 1.25rem;
-            }
-            
             .container {
-                padding: 15px 10px;
+                padding: 1.5rem;
+            }
+            .tech-item {
+                font-size: 0.85rem;
+                padding: 4px 10px;
+            }
+            .icon-group a span {
+                font-size: 0.8rem;
+            }
+            .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            .cta-box {
+                padding: 1rem;
             }
         }
 
-        /* Highlight for important links */
-        .highlight-link {
-            font-weight: 500;
-            color: #ff5dae;
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            background-attachment: fixed;
         }
 
-        .highlight-link:hover {
-            opacity: 0.9;
-            text-decoration: underline;
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
 
-        /* Performance tag */
-        .performance-tag {
+        .cta-box, .tech-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before, .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-box:hover::before, .tech-item:hover::before {
+            left: 100%;
+        }
+
+        h1 {
+            background: linear-gradient(135deg, #fff 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+            gap: 1rem;
+        }
+
+        .tech-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        .icon-group a {
+            position: relative;
+        }
+
+        .icon-group a::after {
+            content: attr(aria-label);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--card-bg);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .icon-group a:hover::after {
+            opacity: 1;
+        }
+
+        * {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+
+        .cta-box, .tech-item {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        h1 {
+            background: linear-gradient(135deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero {
+            animation: slideIn 0.6s ease-out;
+        }
+
+  
+        .btn:hover, .tech-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+        }
+
+    
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        .rust-icon {
+            width: 18px;
+            height: 18px;
             display: inline-block;
-            background: rgba(255, 93, 174, 0.1);
-            color: #ff5dae;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin: 5px 0;
-            font-weight: 500;
+            background-image: url('rust-logo.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: brightness(0) invert(1);  
+            transition: all 0.2s;
+        }
+
+        .tech-item.rust:hover .rust-icon {
+            filter: brightness(0) invert(1);  
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header Section -->
-        <header>
-            <h2>Hello I'm</h2>
-            <h1>Jordany Dimbiniaina<span class="blinker">_</span></h1>
-        </header>
-
-        <!-- Main Content -->
-        <main>
-            <section class="intro">
-                <p>
-                    I'm a developer and <a href="https://github.com/Jordany-Dimbiniaina" target="_blank" class="highlight-link">open source enthusiast</a> 
-                    with experience in software engineering. I enjoy working with <strong>Go</strong>, <strong>JavaScript</strong>, and <strong>Rust</strong>.
+    <main class="container">
+        <section class="hero">
+            <div class="photo-container">
+                <img src="photo.jpeg" alt="Jordany" class="profile-pic">
+            </div>
+            
+            <div class="content">
+                <div class="header">
+                    <h1>Jordany.</h1>
+                    <p class="tagline">Building the invisible architecture of the web.</p>
+                </div>
+                
+                <p class="bio">
+                    Based in Madagascar 🇲🇬, I am a Backend Engineer obsessed with building solid, high-performance, and reliable systems.
                 </p>
 
-                <div class="performance-tag">Performance & Quality Focus</div>
-
-                <p>
-                    I'm passionate about everything related to <strong>backend server performance</strong> and <strong>high-quality backends</strong>. 
-                    Building efficient, scalable, and reliable systems is what drives me.
-                </p>
-
-                <!-- Tech Stack Visual -->
-                <div class="tech-icons">
-                    <span class="tech-icon">⚡</span>
-                    <span class="tech-icon">🚀</span>
-                    <span class="tech-icon">🔧</span>
-                    <span class="tech-icon">📊</span>
-                    <span class="tech-icon">⚙️</span>
-                    <span class="tech-icon">💾</span>
+                <div class="tech-stack">
+                    <a href="https://go.dev/" target="_blank" class="tech-item go">
+                        <i class="fab fa-golang"></i> Go
+                    </a>
+                    <a href="https://www.typescriptlang.org/" target="_blank" class="tech-item typescript">
+                        <i class="fab fa-js"></i> TypeScript
+                    </a>
+                    <a href="https://www.rust-lang.org/" target="_blank" class="tech-item rust">
+                        <span class="rust-icon"></span> Rust
+                    </a>
                 </div>
 
-                <p>
-                    I build <a href="https://github.com/Jordany-Dimbiniaina" target="_blank" class="highlight-link">some open source projects</a> 
-                    and enjoy contributing to the developer community.
+                <p class="bio">
+                    I frequently share my thoughts on system design and shipping code over on 
+                    <a href="https://medium.com/@dimbiniainajordany.dev" target="_blank" class="fuschia-link">
+                        <i class="fab fa-medium"></i> Medium
+                    </a>. 
+                    Want to see how I architect my systems? Check out my latest commits on 
+                    <a href="https://github.com/Jordany-Dimbiniaina" target="_blank" class="fuschia-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>.
                 </p>
 
-                <p>
-                    Wanna talk about something? Connect with me on 
-                    <a href="https://www.linkedin.com/in/jordany-dimbiniaina/" target="_blank" class="highlight-link">LinkedIn</a> 
-                    or email me at <a href="mailto:dimbiniainajordany.dev@gmail.com" class="highlight-link">dimbiniainajordany.dev@gmail.com</a>.
-                </p>
-            </section>
-        </main>
+                <div class="cta-box">
+                    <p>Have an interesting project or a backend that needs scaling?</p>
+                    <a href="https://cal.com/jordany-dimbiniaina-dev/idea" class="btn">
+                        <i class="fas fa-calendar-alt"></i> Let's talk
+                    </a>
+                </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="copyright">© 2026 Jordany Dimbiniaina.</div>
-            
-            <div class="social-links">
-                <a href="https://github.com/Jordany-Dimbiniaina" target="_blank" class="social-link" aria-label="GitHub">
-                    <svg viewBox="0 0 16 16" aria-hidden="true">
-                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-                    </svg>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/jordany-dimbiniaina/" target="_blank" class="social-link" aria-label="LinkedIn">
-                    <svg viewBox="0 0 448 512" aria-hidden="true">
-                        <path d="M100.3 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.6 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.3 61.9 111.3 142.3V448z"></path>
-                    </svg>
-                </a>
+                <footer class="socials">
+                    <p>Find me on:</p>
+                    <div class="icon-group">
+                        <a href="https://bsky.app/profile/djordany.bsky.social" target="_blank" aria-label="Bluesky">
+                            <span class="bluesky-icon"></span>
+                            <span>@djordany.bsky.social</span>
+                        </a>
+                        <a href="https://x.com/Di_Jordany" target="_blank" aria-label="X">
+                            <i class="fab fa-x-twitter"></i>
+                            <span>@Di_Jordany</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jordany-dimbiniaina/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>Dimbiniaina Jordany</span>
+                        </a>
+                    </div>
+                </footer>
             </div>
-        </footer>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
